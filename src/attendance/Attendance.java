@@ -17,10 +17,10 @@ public class Attendance {
     }
 
     public Student getStudent(){
-
+        return student;
     }
 
     public boolean getPresentStatus(){
-        
+        return status;
     }
 }
