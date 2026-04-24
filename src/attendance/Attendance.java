@@ -23,4 +23,9 @@ public class Attendance {
     public boolean getPresentStatus(){
         return status;
     }
+
+    @Override
+    public void toString(){
+        System.out.printf("Name: %s | CourseID:%s | Course Name: %s | Date: %s | Present Status: %s%n%n",student.getName(),course.getCourseId(),course.getCourseName(),date,status);
+    }
 }
