@@ -48,7 +48,36 @@ Attendence a = new Attendence(s,this,d,present);
 
 this.instructor = i;
      
- }   
+ } 
+    public void getAttendancePercentage(Student s) {
+
+    int totalClasses = 0;
+    int classesPresent = 0;
+
+    for (Attendance a : attendanceList) {
+
+        if (a.getStudent().equals(s)) {
+            totalClasses++;
+
+            if (a.getPresentStatus()) {
+                classesPresent++;
+            }
+        }
+    }
+
+    if (totalClasses > 0) {
+        double percentage = ((double) classesPresent / totalClasses) * 100;
+
+        System.out.println("Attendance for "
+                + s.getName() + " : "
+                + percentage + "%");
+    } else {
+        System.out.println("No attendance records found.");
+    }
+}
+    public ArrayList<Attendance> getAttendanceList() {
+    return attendanceList;
+}
 
   public void getAttendencePercentage(Student s){
 
