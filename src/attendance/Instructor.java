@@ -20,11 +20,13 @@ public class Instructor {
 
     public void addCourse(Course c){
         courses.add(c);
-        c.setIntructor(this);
+        c.setInstructor(this);
     }
 
     public void markAttendance(Course c,Date d,boolean present){
 
+c.markAttendence(d,s,present);
+        
     }
 
     public void viewAttendanceReport(Course c){
