@@ -23,10 +23,8 @@ public class Instructor {
         c.setInstructor(this);
     }
 
-    public void markAttendance(Course c,Date d,boolean present){
-
-c.markAttendence(d,s,present);
-        
+    public void markAttendance(Student s,Date d,boolean present,Course c){
+        c.markAttendence(d,s,present);
     }
 
     public void viewAttendanceReport(Course c){

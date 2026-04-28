@@ -25,7 +25,7 @@ public class Attendance {
     }
 
     @Override
-    public void toString(){
-        System.out.printf("Name: %s | CourseID:%s | Course Name: %s | Date: %s | Present Status: %s%n%n",student.getName(),course.getCourseId(),course.getCourseName(),date,status);
+    public String toString(){
+        return "Name:"+ student.getName()+" | CourseID: "+course.getCourseId()+" | Course Name: "+ course.getCourseName()+" | Date: "+todaysDate+" | Present Status: "+status;
     }
 }

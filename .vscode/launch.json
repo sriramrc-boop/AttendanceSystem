@@ -9,7 +9,7 @@
             "name": "Launch Attendance System",
             "request": "launch",
             "mainClass": "attendanceManagement.Driver",
-            "vmArgs": "--module-path \"${workspaceFolder}/lib\" --add-modules javafx.controls,javafx.fxml"
+            "vmArgs": "--module-path \"${workspaceFolder}/lib\" --add-modules javafx.controls,javafx.fxml -Djava.library.path=\"${workspaceFolder}/lib\" --enable-native-access=javafx.graphics"
         }
     ]
 }
