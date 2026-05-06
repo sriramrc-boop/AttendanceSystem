@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox spacing="15" alignment="CENTER" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="attendanceManagement.StudentController" style="-fx-padding: 20;">
+    <Label text="Student Dashboard" style="-fx-font-size: 20px; -fx-font-weight: bold;"/>
+    
+    <HBox spacing="20">
+        <VBox spacing="10" prefWidth="250">
+            <Label text="Enroll in Course" style="-fx-font-weight: bold;"/>
+            <TextField fx:id="enrollCourseIdField" promptText="Course ID"/>
+            <TextField fx:id="enrollCourseNameField" promptText="Course Name"/>
+            <TextField fx:id="enrollCreditField" promptText="Credits"/>
+            <Button text="Enroll" onAction="#handleEnroll" maxWidth="Infinity"/>
+        </VBox>
+        
+        <VBox spacing="10" prefWidth="250">
+            <Label text="View Statistics" style="-fx-font-weight: bold;"/>
+            <TextField fx:id="viewCourseIdField" promptText="Enter Course ID"/>
+            <Button text="Calculate Percentage" onAction="#handleCheckAttendance" maxWidth="Infinity"/>
+            <Label fx:id="percentageLabel" text="Attendance: --%" style="-fx-font-size: 16px; -fx-text-fill: blue;"/>
+        </VBox>
+    </HBox>
+    
+    <Label text="Your Enrolled Courses:"/>
+    <ListView fx:id="enrolledCoursesList" prefHeight="150"/>
+</VBox>

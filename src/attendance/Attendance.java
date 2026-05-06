@@ -1,8 +1,9 @@
 package attendance;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Attendance {
+public class Attendance implements Serializable{
     private Student student;
     private Course course;
     private Date todaysDate;

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox spacing="10" alignment="CENTER" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="attendanceManagement.InstructorController" style="-fx-padding: 20;">
+    <Label text="Instructor Dashboard" style="-fx-font-size: 20px; -fx-font-weight: bold;"/>
+    
+    <HBox spacing="10">
+        <VBox spacing="5" style="-fx-border-color: gray; -fx-padding: 10;">
+            <Label text="Add New Course" style="-fx-font-weight: bold;"/>
+            <TextField fx:id="courseNameField" promptText="Course Name"/>
+            <TextField fx:id="courseIdField" promptText="Course ID"/>
+            <TextField fx:id="creditField" promptText="Credits"/>
+            <Button text="Add Course" onAction="#handleAddCourse" maxWidth="Infinity"/>
+        </VBox>
+        
+        <VBox spacing="5" style="-fx-border-color: gray; -fx-padding: 10;">
+            <Label text="Mark Attendance" style="-fx-font-weight: bold;"/>
+            <TextField fx:id="markCourseIdField" promptText="Course ID"/>
+            <TextField fx:id="studentRollField" promptText="Student Roll No"/>
+            <CheckBox fx:id="presentCheckBox" text="Is Present?"/>
+            <Button text="Mark Attendance" onAction="#handleMarkAttendance" maxWidth="Infinity"/>
+            <Button text="View Full Report" onAction="#handleViewReport" maxWidth="Infinity"/>
+        </VBox>
+    </HBox>
+    
+    <TextArea fx:id="reportArea" prefHeight="200" editable="false" promptText="Reports will appear here..."/>
+</VBox>

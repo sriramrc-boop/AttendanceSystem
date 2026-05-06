@@ -1,16 +1,18 @@
 package attendance;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Student {
+public class Student implements Serializable{
     private String name;
     private String rollNo;
     private ArrayList<Course> courses;
 
     public Student(){}
-    public Student(String name,String rollNo){
-        this.name = name;
+    public Student(String rollNo,String name){
         this.rollNo = rollNo;
+        this.name = name;
+        courses = new ArrayList<>();
     }
 
     public String getRollNo(){
@@ -21,11 +23,42 @@ public class Student {
         return name;
     }
 
-    public void addCourse(Course c){
-        courses.add(c);
+    public void addCourse(String courseName,String courseId,int credit){
+        Course found = null;
+        ArrayList<Course> cs = FileManager.getCourseList();
+        if(cs == null){
+            cs = new ArrayList<>();
+        }
+        else{
+            for(Course c:cs){
+                if(c.getCourseId().equals(courseId)){
+                    found = c;
+                    break;
+                }
+            }
+        }
+        
+        if(found == null){
+            Course course = new Course(courseId,courseName,credit);
+            cs.add(course);
+            courses.add(course);
+            course.enrollStudent(this);
+            FileManager.saveAttendance(cs);
+        }
+        else{
+            courses.add(found);
+            found.enrollStudent(this);
+            FileManager.saveAttendance(cs);
+        }
     }
 
-    public void viewAttendance(){
-        System.out.println("Attendance:");
+    public void viewAttendance(String courseId){
+        Course c = FileManager.retrieveData(courseId);
+        if(c != null){
+            c.getAttendencePercentage(rollNo);
+        }
+        else{
+            System.out.println("Course not found");
+        }
     }
 }
