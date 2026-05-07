@@ -22,42 +22,36 @@ public class Instructor extends User{
         return name;
     }
 
-    // public void addCourse(String courseName,String courseId,int credit){
-    //     for(Course c1:courses){
-    //         if(c1.getCourseId().equals(courseId)){
-    //             Course found = null;
-    //             ArrayList<Course> cs = FileManager.getCourseList();
-    //             if(cs == null){
-    //                 cs = new ArrayList<>();
-    //                 System.out.println("New file created");
-    //             }
-    //             else{
-    //                 for(Course c:cs){
-    //                     if(c.getCourseId().equals(courseId)){
-    //                         found = c;
-    //                         break;
-    //                     }
-    //                 }
-    //             }
+    public void addCourse(String courseName,String courseId,int credit){
+            Course found = null;
+            ArrayList<Course> courseList = FileManager.getCourseList();
+            if(courseList == null){
+                courseList = new ArrayList<>();
+                System.out.println("New file created");
+            }
+            else{
+                for(Course c:courseList){
+                    if(c.getCourseId().equals(courseId)){
+                        found = c;
+                        break;
+                    }
+                }
+            }
 
-    //             if(found == null){
-    //                 Course course = new Course(courseId,courseName,credit);
-    //                 cs.add(course);
-    //                 courses.add(course);
-    //                 course.setInstructor(this);
-    //                 FileManager.saveAttendance(cs);
-    //             }
-    //             else{
-    //                 courses.add(found);
-    //                 found.setInstructor(this);
-    //                 FileManager.saveAttendance(cs);
-    //             }
-    //         }
-    //         else{
-    //             System.out.println("Course already exists in course list");
-    //         }
-    //     }
-    // }
+            if(found == null){
+                Course course = new Course(courseId,courseName,credit);
+                courseList.add(course);
+                // courses.add(course);
+                // course.setInstructor(this);
+                FileManager.saveAttendance(courseList);
+            }
+            else{
+                // courses.add(found);
+                // found.setInstructor(this);
+                FileManager.saveAttendance(courseList);
+                System.out.println("Course already exits");
+            }
+        }
 
     public void markAttendance(String studentId,Date d,boolean present,String courseId){
         Course found = null;
@@ -71,7 +65,6 @@ public class Instructor extends User{
         if(found != null){
             found.markAttendance(studentId,d,present);
             FileManager.saveAttendance(cs);
-            System.out.println("Attendance updated");
         }
         else{
             System.out.println("Course not found.");

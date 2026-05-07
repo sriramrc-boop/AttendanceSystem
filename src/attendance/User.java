@@ -7,9 +7,9 @@ public abstract class User implements Serializable {
     protected String id;
 
     public User(){}
-    public User(String name, String id) {
-        this.name = name;
+    public User(String id, String name) {
         this.id = id;
+        this.name = name;
     }
 
     public String getName() { return name; }

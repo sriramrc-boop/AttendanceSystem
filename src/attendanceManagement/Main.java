@@ -17,7 +17,7 @@ public class Main {
             ArrayList<Course> courses = (ArrayList<Course>) obj.readObject();
 
             for(Course c:courses){
-                c.getAttendanceReport();
+                c.getCourseId();
             }
         }
         catch(IOException | ClassNotFoundException e){

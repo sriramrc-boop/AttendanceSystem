@@ -12,8 +12,6 @@ import java.io.PrintStream;
 public class StudentController {
 
     @FXML private TextField addCourseId;
-    @FXML private TextField addCourseName;
-    @FXML private TextField addCredits;
     @FXML private TextArea outputArea;
     @FXML private TextField viewCourseAtdn;
 
@@ -40,17 +38,13 @@ public class StudentController {
     @FXML
     void addCourseBtn(ActionEvent event) {
         try {
-            String name = addCourseName.getText();
             String id = addCourseId.getText();
-            int credits = Integer.parseInt(addCredits.getText());
 
             // Calls the backend Student.java logic
-            currentStudent.enrollCourse(name, id, credits);
+            currentStudent.enrollCourse(id);
             
             // Clear fields after adding
-            addCourseName.clear();
             addCourseId.clear();
-            addCredits.clear();
         } catch (NumberFormatException e) {
             System.out.println("Error: Credits must be a number.");
         } catch (Exception e) {

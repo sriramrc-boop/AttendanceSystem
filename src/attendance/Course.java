@@ -9,7 +9,7 @@ public class Course implements Serializable{
     private String courseId;
     private String courseName;
     private int credit;
-    private Instructor instructor;
+    // private Instructor instructor;
     private ArrayList<Attendance> attendanceList;
     private ArrayList<Student> studentList;
 
@@ -46,15 +46,16 @@ public class Course implements Serializable{
         if(found!=null){
             Attendance a = new Attendance(found,this,d,present);
             attendanceList.add(a);
+            System.out.println("Attendance updated");
         }
         else{
             System.out.println("Student not found in student list for course");
         }
     }
 
-    public void setInstructor(Instructor i){
-        this.instructor = i;
-    } 
+    // public void setInstructor(Instructor i){
+    //     this.instructor = i;
+    // } 
 
     public void getAttendencePercentage(String rollno){
         int totalClasses=0;
@@ -82,9 +83,9 @@ public class Course implements Serializable{
         return attendanceList;
     }
 
-    public String getInstructor(){
-        return instructor.getInstructorId();
-    }
+    // public String getInstructor(){
+    //     return instructor.getInstructorId();
+    // }
 
     public ArrayList<Student> getStudentList(){
         return studentList;
