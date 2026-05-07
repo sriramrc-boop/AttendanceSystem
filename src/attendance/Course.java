@@ -9,7 +9,6 @@ public class Course implements Serializable{
     private String courseId;
     private String courseName;
     private int credit;
-    // private Instructor instructor;
     private ArrayList<Attendance> attendanceList;
     private ArrayList<Student> studentList;
 
@@ -38,7 +37,7 @@ public class Course implements Serializable{
     public void markAttendance(String studentId,Date d,boolean present){
         Student found = null;
         for(Student s:studentList){
-            if (s.getRollNo().equals(studentId)){
+            if (s.getId().equals(studentId)){
                 found = s;
                 break;
             }
@@ -53,16 +52,12 @@ public class Course implements Serializable{
         }
     }
 
-    // public void setInstructor(Instructor i){
-    //     this.instructor = i;
-    // } 
-
     public void getAttendencePercentage(String rollno){
         int totalClasses=0;
         int classesPresent=0;
 
         for(Attendance a:attendanceList){
-            if(a.getStudent().getRollNo().equals(rollno)){
+            if(a.getStudent().getId().equals(rollno)){
                 totalClasses++;
                 if (a.getPresentStatus()){
                     classesPresent++;       
@@ -83,9 +78,6 @@ public class Course implements Serializable{
         return attendanceList;
     }
 
-    // public String getInstructor(){
-    //     return instructor.getInstructorId();
-    // }
 
     public ArrayList<Student> getStudentList(){
         return studentList;
@@ -93,8 +85,6 @@ public class Course implements Serializable{
 
     public void getAttendanceReport() {
         for (Attendance a : attendanceList) {
-            // System.out.println("Student: " + a.getStudent().getName() + 
-            //                    " | Status: " + (a.getPresentStatus() ? "Present" : "Absent"));
             System.out.println(a.toString());
         }
     }

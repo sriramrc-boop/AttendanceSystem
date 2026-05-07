@@ -29,7 +29,7 @@ public class MainMenuController {
 
     @FXML
     void instructorClick(ActionEvent event) throws IOException {
-        // Extracting info from the text fields
+        
         String id = instructorID.getText();
         String name = instructorName.getText();
 
@@ -38,15 +38,15 @@ public class MainMenuController {
             return;
         }
 
-        // Creating the object using your constructor
+        
         Instructor currentInstructor = new Instructor(id, name);
 
-        // Loading the next scene and passing the object
+        
         FXMLLoader loader = new FXMLLoader(getClass().getResource("instructorMenu.fxml"));
         Parent root = loader.load();
 
         InstructorController controller = loader.getController();
-        controller.setInstructor(currentInstructor); // Handing over the object
+        controller.setInstructor(currentInstructor);
 
         switchTheScene(event, root);
     }
@@ -61,14 +61,14 @@ public class MainMenuController {
             return;
         }
 
-        // Creating the object
+        
         Student currentStudent = new Student(roll, name);
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("studentMenu.fxml"));
         Parent root = loader.load();
 
         StudentController controller = loader.getController();
-        controller.setStudent(currentStudent); // Handing over the object
+        controller.setStudent(currentStudent); 
 
         switchTheScene(event, root);
     }

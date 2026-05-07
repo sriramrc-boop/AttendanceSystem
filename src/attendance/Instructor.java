@@ -4,22 +4,10 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public class Instructor extends User{
-    // private String instructorId;
-    // private String instructorName;
-    // private ArrayList<Course> courses;
 
     public Instructor(){super();}
     public Instructor(String instructorId,String instructorName){
         super(instructorId,instructorName);
-        // courses = new ArrayList<>();
-    }
-
-    public String getInstructorId(){
-        return id;
-    }
-
-    public String getInstructorName(){
-        return name;
     }
 
     public void addCourse(String courseName,String courseId,int credit){
@@ -41,14 +29,10 @@ public class Instructor extends User{
             if(found == null){
                 Course course = new Course(courseId,courseName,credit);
                 courseList.add(course);
-                // courses.add(course);
-                // course.setInstructor(this);
                 FileManager.saveAttendance(courseList);
                 System.out.println("Course added");
             }
             else{
-                // courses.add(found);
-                // found.setInstructor(this);
                 FileManager.saveAttendance(courseList);
                 System.out.println("Course already exits");
             }

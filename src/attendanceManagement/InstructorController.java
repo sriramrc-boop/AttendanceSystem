@@ -26,7 +26,7 @@ public class InstructorController {
 
     @FXML
     public void initialize() {
-        // Redirect System.out.println from Instructor.java to the TextArea
+        
         OutputStream out = new OutputStream() {
             @Override
             public void write(int b) {
@@ -38,19 +38,17 @@ public class InstructorController {
 
     public void setInstructor(Instructor instructor) {
         this.currentInstructor = instructor;
-        System.out.println("Instructor Session Active: " + instructor.getInstructorName());
     }
 
     @FXML
     void addCourseBtn(ActionEvent event) {
         try {
-            // Matches: addCourse(String courseName, String courseId, int credit)
+            
             currentInstructor.addCourse(
                 addCourseName.getText(), 
                 addCourseId.getText(), 
                 Integer.parseInt(addCredits.getText())
             );
-            System.out.println("Process completed for Course ID: " + addCourseId.getText());
         } catch (NumberFormatException e) {
             System.out.println("Error: Credits must be a number.");
         }
@@ -58,7 +56,7 @@ public class InstructorController {
 
     @FXML
     void markAttendanceBtn(ActionEvent event) {
-        // Matches: markAttendance(String studentId, Date d, boolean present, String courseId)
+        
         currentInstructor.markAttendance(
             markStudentId.getText(), 
             new Date(), 
@@ -70,8 +68,7 @@ public class InstructorController {
     @FXML
     void reportBtn(ActionEvent event) {
         outputArea.clear();
-        // Matches: viewAttendanceReport(String courseId)
-        // This will trigger c.getAttendanceReport() which prints to System.out
+        
         currentInstructor.viewAttendanceReport(reportCourseId.getText());
     }
 

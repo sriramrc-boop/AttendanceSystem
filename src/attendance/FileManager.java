@@ -1,8 +1,5 @@
 package attendance;
 
-// import java.io.BufferedInputStream;
-// import java.io.BufferedOutputStream;
-// import java.io.EOFException;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -59,26 +56,4 @@ public class FileManager {
             return null;
         }
     }
-
-    
-
-    // public void getReport() {
-    //     try {
-    //         FileInputStream file = new FileInputStream("attendance.dat");
-    //         BufferedInputStream buffinp = new BufferedInputStream(file);
-    //         ObjectInputStream objectinp = new ObjectInputStream(buffinp);
-
-    //         while (true) {
-    //             try {
-    //                 Attendance a = (Attendance) objectinp.readObject();
-    //                 System.out.println(a);
-    //             } catch (EOFException e) {
-    //                 break; 
-    //             }
-    //         }
-    //         objectinp.close();
-    //     } catch (IOException | ClassNotFoundException e) {
-    //         System.out.println("Error while fetching report: " + e.getMessage());
-    //     }
-    // }
 }

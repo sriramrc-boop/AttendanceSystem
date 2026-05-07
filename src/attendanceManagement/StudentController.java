@@ -19,7 +19,7 @@ public class StudentController {
 
     @FXML
     public void initialize() {
-        // Redirect System.out.println from Student.java and FileManager.java to the TextArea
+    
         OutputStream out = new OutputStream() {
             @Override
             public void write(int b) {
@@ -29,10 +29,9 @@ public class StudentController {
         System.setOut(new PrintStream(out, true));
     }
 
-    // Called by MainMenuController to pass the logged-in student object
+    
     public void setStudent(Student student) {
         this.currentStudent = student;
-        System.out.println("Welcome, " + student.getName() + " [" + student.getRollNo() + "]");
     }
 
     @FXML
@@ -40,10 +39,10 @@ public class StudentController {
         try {
             String id = addCourseId.getText();
 
-            // Calls the backend Student.java logic
+            
             currentStudent.enrollCourse(id);
             
-            // Clear fields after adding
+            
             addCourseId.clear();
         } catch (NumberFormatException e) {
             System.out.println("Error: Credits must be a number.");
@@ -54,20 +53,19 @@ public class StudentController {
 
     @FXML
     void viewAttendance(ActionEvent event) {
-        // 1. Clear the output area so the new report is easy to read
+        
         outputArea.clear(); 
         
-        // 2. Get the Course ID from the text field
+        
         String courseId = viewCourseAtdn.getText();
         
-        // 3. Validation: Make sure the field isn't empty
+        
         if (courseId == null || courseId.trim().isEmpty()) {
             System.out.println("Please enter a Course ID to view attendance.");
             return;
         }
 
-        // 4. Use the student's own method
-        // This will now execute the System.out.println statements inside Student.java
+        
         if (currentStudent != null) {
             currentStudent.viewAttendance(courseId);
         } else {
