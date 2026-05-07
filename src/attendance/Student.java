@@ -41,6 +41,7 @@ public class Student extends User{
                 // courses.add(found);
                 found.enrollStudent(this);
                 FileManager.saveAttendance(cs);
+                System.out.println("Student Enrolled!");
         }
         }
     }

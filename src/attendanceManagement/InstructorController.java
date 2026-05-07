@@ -43,17 +43,17 @@ public class InstructorController {
 
     @FXML
     void addCourseBtn(ActionEvent event) {
-        // try {
-        //     // Matches: addCourse(String courseName, String courseId, int credit)
-        //     currentInstructor.addCourse(
-        //         addCourseName.getText(), 
-        //         addCourseId.getText(), 
-        //         Integer.parseInt(addCredits.getText())
-        //     );
-        //     System.out.println("Process completed for Course ID: " + addCourseId.getText());
-        // } catch (NumberFormatException e) {
-        //     System.out.println("Error: Credits must be a number.");
-        // }
+        try {
+            // Matches: addCourse(String courseName, String courseId, int credit)
+            currentInstructor.addCourse(
+                addCourseName.getText(), 
+                addCourseId.getText(), 
+                Integer.parseInt(addCredits.getText())
+            );
+            System.out.println("Process completed for Course ID: " + addCourseId.getText());
+        } catch (NumberFormatException e) {
+            System.out.println("Error: Credits must be a number.");
+        }
     }
 
     @FXML

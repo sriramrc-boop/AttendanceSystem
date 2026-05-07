@@ -72,7 +72,7 @@ public class Course implements Serializable{
 
         if (totalClasses > 0) {
                 double percentage = ((double) classesPresent / totalClasses) * 100;
-                System.out.println("Attendance for " + rollno + "for the course "+ courseName + "(CourseID: "+ courseId + ")" +": " + percentage + "%");
+                System.out.println("Attendance for " + rollno + " for the course "+ courseName + "(CourseID: "+ courseId + ")" +": " + percentage + "%");
             } 
         else {
             System.out.println("No records found.");

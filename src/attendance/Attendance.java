@@ -27,6 +27,6 @@ public class Attendance implements Serializable{
 
     @Override
     public String toString(){
-        return "Name:"+ student.getName()+" | CourseID: "+course.getCourseId()+" | Course Name: "+ course.getCourseName()+" | Date: "+todaysDate+" | Present Status: "+status;
+        return "Name: "+ student.getName()+" | CourseID: "+course.getCourseId()+" | Course Name: "+ course.getCourseName()+" | Date: "+todaysDate+" | Present Status: "+status;
     }
 }

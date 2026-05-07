@@ -44,6 +44,7 @@ public class Instructor extends User{
                 // courses.add(course);
                 // course.setInstructor(this);
                 FileManager.saveAttendance(courseList);
+                System.out.println("Course added");
             }
             else{
                 // courses.add(found);
@@ -56,6 +57,7 @@ public class Instructor extends User{
     public void markAttendance(String studentId,Date d,boolean present,String courseId){
         Course found = null;
         ArrayList<Course> cs = FileManager.getCourseList();
+        
         for(Course c:cs){
             if(c.getCourseId().equals(courseId)){
                 found = c;
