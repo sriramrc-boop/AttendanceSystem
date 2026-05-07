@@ -3,27 +3,26 @@ package attendance;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Student implements Serializable{
-    private String name;
-    private String rollNo;
+public class Student extends User{
+    // private String name;
+    // private String rollNo;
     private ArrayList<Course> courses;
 
     public Student(){}
     public Student(String rollNo,String name){
-        this.rollNo = rollNo;
-        this.name = name;
+        super(rollNo,name);
         courses = new ArrayList<>();
     }
 
     public String getRollNo(){
-        return rollNo;
+        return id;
     }
 
     public String getName(){
         return name;
     }
 
-    public void addCourse(String courseName,String courseId,int credit){
+    public void enrollCourse(String courseName,String courseId,int credit){
         Course found = null;
         ArrayList<Course> cs = FileManager.getCourseList();
         if(cs == null){
@@ -55,7 +54,7 @@ public class Student implements Serializable{
     public void viewAttendance(String courseId){
         Course c = FileManager.retrieveData(courseId);
         if(c != null){
-            c.getAttendencePercentage(rollNo);
+            c.getAttendencePercentage(id);
         }
         else{
             System.out.println("Course not found");

@@ -45,7 +45,7 @@ public class StudentController {
             int credits = Integer.parseInt(addCredits.getText());
 
             // Calls the backend Student.java logic
-            currentStudent.addCourse(name, id, credits);
+            currentStudent.enrollCourse(name, id, credits);
             
             // Clear fields after adding
             addCourseName.clear();
