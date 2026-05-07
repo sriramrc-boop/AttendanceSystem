@@ -45,13 +45,19 @@ public class FileManager {
 
     public static Course retrieveData(String courseId){
         ArrayList<Course> courses = getCourseList();
-        for(Course c:courses){
-            if(courseId.equals(c.getCourseId())){
-                return c;
+        if(courses != null){
+            for(Course c:courses){
+                if(courseId.equals(c.getCourseId())){
+                    return c;
+                }
             }
+            System.out.println("Course not found");
+            return null;
         }
-        System.out.println("Error file not found");
-        return null;
+        else{
+            System.out.println("File not found");
+            return null;
+        }
     }
 
     

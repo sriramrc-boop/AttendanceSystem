@@ -5,12 +5,12 @@ import java.util.ArrayList;
 public class Student extends User{
     // private String name;
     // private String rollNo;
-    // private ArrayList<Course> courses;
+     private ArrayList<Course> courses;
 
     public Student(){}
     public Student(String rollNo,String name){
         super(rollNo,name);
-        // courses = new ArrayList<>();
+        courses = new ArrayList<>();
     }
 
     public String getRollNo(){
@@ -30,8 +30,14 @@ public class Student extends User{
         else{
             for(Course c:cs){
                 if(c.getCourseId().equals(courseId)){
-                    found = c;
-                    break;
+                    if(courses.contains(c)){
+                        System.out.println("Already enrolled in course.");
+                        return;
+                    }
+                    else{
+                        found = c;
+                        break;
+                    }
                 }
             }
             if(found == null){
@@ -40,9 +46,10 @@ public class Student extends User{
             else{
                 // courses.add(found);
                 found.enrollStudent(this);
+                courses.add(found);
                 FileManager.saveAttendance(cs);
                 System.out.println("Student Enrolled!");
-        }
+            }   
         }
     }
 
@@ -50,9 +57,6 @@ public class Student extends User{
         Course c = FileManager.retrieveData(courseId);
         if(c != null){
             c.getAttendencePercentage(id);
-        }
-        else{
-            System.out.println("Course not found");
         }
     }
 }

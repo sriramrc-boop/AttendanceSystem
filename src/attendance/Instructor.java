@@ -57,6 +57,11 @@ public class Instructor extends User{
     public void markAttendance(String studentId,Date d,boolean present,String courseId){
         Course found = null;
         ArrayList<Course> cs = FileManager.getCourseList();
+
+        if (cs == null) {
+            System.out.println("No courses found in database.");
+            return;
+        }
         
         for(Course c:cs){
             if(c.getCourseId().equals(courseId)){
@@ -77,9 +82,6 @@ public class Instructor extends User{
         Course c = FileManager.retrieveData(courseId);
         if(c != null){
             c.getAttendanceReport();
-        }
-        else{
-            System.out.println("Course not found");
         }
     }
 }
