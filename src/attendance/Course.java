@@ -45,14 +45,14 @@ public class Course implements Serializable{
         if(found!=null){
             Attendance a = new Attendance(found,this,d,present);
             attendanceList.add(a);
-            System.out.println("Attendance updated");
+            System.out.println("Attendance updated.");
         }
         else{
-            System.out.println("Student not found in student list for course");
+            System.out.println("Student not found in student list for course.");
         }
     }
 
-    public void getAttendencePercentage(String rollno){
+    public void getAttendancePercentage(String rollno){
         int totalClasses=0;
         int classesPresent=0;
 

@@ -5,9 +5,10 @@ import java.util.Date;
 
 public class Instructor extends User{
 
-    public Instructor(){super();}
+    public Instructor(){}
     public Instructor(String instructorId,String instructorName){
-        super(instructorId,instructorName);
+        this.id = instructorId;
+        this.name = instructorName;
     }
 
     public void addCourse(String courseName,String courseId,int credit){

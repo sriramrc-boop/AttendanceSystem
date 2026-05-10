@@ -7,7 +7,8 @@ public class Student extends User{
 
     public Student(){}
     public Student(String rollNo,String name){
-        super(rollNo,name);
+        this.id = rollNo;
+        this.name = name;
         courses = new ArrayList<>();
     }
 
@@ -48,7 +49,7 @@ public class Student extends User{
     public void viewAttendance(String courseId){
         Course c = FileManager.retrieveData(courseId);
         if(c != null){
-            c.getAttendencePercentage(id);
+            c.getAttendancePercentage(id);
         }
     }
 }
